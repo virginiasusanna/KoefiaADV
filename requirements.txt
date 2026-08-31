@@ -1,0 +1,8 @@
+# Dipendenze per scripts/status_report.py e per lo sviluppo locale di tutti e
+# tre i server. In produzione ogni mcp-*-ads/ ha il proprio requirements.txt
+# minimale, cosi' i server restano deployabili/versionabili separatamente.
+mcp[cli]>=1.2.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+facebook-business>=21.0.0
+google-ads>=25.0.0

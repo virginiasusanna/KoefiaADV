@@ -1,0 +1,9 @@
+.env
+mcp-meta-ads/.env
+mcp-google-ads/.env
+mcp-tiktok-ads/.env
+__pycache__/
+*.pyc
+logs/*.jsonl
+.venv/
+venv/
