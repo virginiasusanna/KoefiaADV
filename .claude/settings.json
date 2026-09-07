@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl *)"
+    ],
+    "autoMode": {
+      "allow": [
+        "$defaults",
+        "Bash commands (curl, pip install, or Python scripts using the facebook-business/google-ads SDKs) that call graph.facebook.com, mcp.facebook.com, googleads.googleapis.com, oauth2.googleapis.com, or business-api.tiktok.com to read or write Ads campaign data (list/pause/resume campaigns, ad sets, ads, keywords; create audiences; create campaigns) for the KoefiaADV project are allowed. The project owner has given explicit verbal confirmation in this session for these ad-management actions."
+      ]
+    }
+  }
+}
