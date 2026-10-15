@@ -17,6 +17,10 @@ Lo script `apps-script.gs`, collegato al foglio:
 - aggiunge al foglio il menu "W.E.T." con "Promemoria pagamento" (a chi non ha la spunta Pagato)
   ed "Email a tutti gli iscritti…".
 
+Le email partono dall'account che fa il deployment dello script: per farle partire da
+nicolo.olivieri9@gmail.com il foglio va condiviso con lui (Editor) e i passi sotto li fa lui.
+Per ricevere anche voi le notifiche, aggiungete gli indirizzi in `ALTRE_NOTIFICHE`.
+
 Installazione (una volta sola):
 1. Apri il foglio > Estensioni > Apps Script, cancella il contenuto e incolla `apps-script.gs`, salva.
 2. Esegui il deployment > Nuovo deployment > tipo "App web"; Esegui come: Me; Chi ha accesso: Chiunque.

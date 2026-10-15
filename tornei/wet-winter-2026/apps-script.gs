@@ -2,11 +2,14 @@
 // Installazione: nel Google Sheet delle iscrizioni, Estensioni > Apps Script, incolla questo file,
 // salva, poi Esegui il deployment > Nuovo deployment > App web
 // (Esegui come: Me, Chi ha accesso: Chiunque) e copia l'URL /exec in assets/config.js.
-// Le email partono dal tuo account Gmail (limite gratuito: 100 destinatari al giorno).
+// Le email partono dall'account Google di chi fa il deployment (es. nicolo.olivieri9@gmail.com):
+// il deployment va fatto da quell'account. Limite Gmail gratuito: 100 destinatari al giorno.
 
 var EVENTO = "The Ludic-Milan W.E.T. Winter Edition";
 var MITTENTE = "Ludic Milan";
 var PAYPAL = "https://paypal.me/conquestludic";
+// Chi riceve la notifica di ogni nuova iscrizione, oltre all'account che invia (separa con virgole).
+var ALTRE_NOTIFICHE = "";
 var HEADERS = ["Data", "Nome", "Cognome", "Email", "Nick Parabellum", "LSID", "Lingua", "Pagato", "Note"];
 var COL = { nome: 2, email: 4, lingua: 7, pagato: 8 };
 
@@ -67,7 +70,7 @@ function doPost(e) {
   var t = TESTI[lingua];
   MailApp.sendEmail({ to: p.email, subject: t.oggetto, body: t.corpo(p.nome), name: MITTENTE });
   MailApp.sendEmail({
-    to: Session.getEffectiveUser().getEmail(),
+    to: [Session.getEffectiveUser().getEmail(), ALTRE_NOTIFICHE].filter(String).join(","),
     subject: "Nuova iscrizione W.E.T. Winter: " + p.nome + " " + p.cognome,
     body: "Nome: " + p.nome + " " + p.cognome + "\nEmail: " + p.email + "\nNick Parabellum: " + p.nick_parabellum +
       "\nLSID: " + p.lsid + "\nLingua: " + lingua + "\n\nIscritti totali: " + (foglio_().getLastRow() - 1) +
